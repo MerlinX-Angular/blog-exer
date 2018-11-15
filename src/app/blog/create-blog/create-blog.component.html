@@ -1,0 +1,95 @@
+
+<div class="container ">
+    <h3>New Post</h3>
+    <div class="row">
+      <div class="col-lg-6 col-md-12 co">
+        <form #f="ngForm"> 
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input 
+                   #author="ngModel" 
+                   ngModel
+                   name="author" 
+                   id="author" 
+                   type="text" 
+                   class="form-control" 
+                   required
+                   minlength="3"
+                >
+                <div class="alert alert-danger" *ngIf="author.touched && author.invalid">
+                    <div 
+                      *ngIf="author.errors.required">
+                      Author is required
+                    </div>
+                    <div *ngIf="author.errors.minlength">
+                      Author should be minimum 3 characters.
+                    </div>
+                  </div>
+              </div>          
+          <div class="form-group">
+              <label for="title">Title</label>
+              <input 
+                 #title="ngModel" 
+                 ngModel
+                 name="title" 
+                 id="title" 
+                 type="text" 
+                 class="form-control" 
+                 required
+                 minlength="3"
+              >
+              <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+                  <div 
+                    *ngIf="title.errors.required">
+                    Title is required
+                  </div>
+                  <div *ngIf="title.errors.minlength">
+                    Title should be minimum 3 characters.
+                  </div>
+                </div>
+            </div> 
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input 
+                   #description="ngModel" 
+                   ngModel
+                   name="description" 
+                   id="description" 
+                   type="text" 
+                   class="form-control" 
+                   required
+                   minlength="15"
+                >
+                <div class="alert alert-danger" *ngIf="description.touched && description.invalid">
+                    <div 
+                      *ngIf="description.errors.required">
+                      Description is required
+                    </div>
+                    <div *ngIf="description.errors.minlength">
+                      Description should be minimum 15 characters.
+                    </div>
+                  </div>
+              </div>        
+            <div class="form-group">
+              <label for="image">Image URL</label>            
+                <input 
+                   #image="ngModel" 
+                   ngModel
+                   name="image"              
+                   id="image" 
+                   type="text" 
+                   class="form-control" 
+                   required
+                >            
+              <div class="alert alert-danger" *ngIf="image.touched && image.invalid">
+                <div *ngIf="image.errors.required">Image link is required.</div>           
+              </div>
+            </div>            
+            <button class="btn btn-primary"
+            [disabled]="f.invalid"
+            routerLink="/"
+            (click)="addBlog(title.value, author.value, description.value, image.value); f.reset()">Save</button>          
+          </form>              
+      </div>  
+    </div>
+    </div>

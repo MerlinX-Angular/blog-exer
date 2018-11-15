@@ -1,0 +1,20 @@
+<div class="container ">
+<h3>Post Details</h3>
+ <div class="row">
+  <div class="col-lg-6 col-md-6">
+    <div class="card">
+        <img class="img-fluid" src="{{this.getBlogByUrlId[0].image}}">
+        <div class="card-body">
+            <div class="post-title">{{this.getBlogByUrlId[0].title}}</div>
+            <p class="card-text">{{this.getBlogByUrlId[0].description}}</p>
+            <div class="metas">POSTED BY {{this.getBlogByUrlId[0].author}}</div>
+            <div class="cont">
+              <button class="btn btn-primary bo" routerLink="edit">Edit</button>
+              <button class="btn btn-danger bo" (click)="remove(id)">Remove</button>
+              <button class="btn btn-primary" routerLink="/">Back</button>
+            </div>    
+        </div>
+    </div>
+  </div>
+  </div>
+</div>

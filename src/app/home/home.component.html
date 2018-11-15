@@ -1,0 +1,29 @@
+<div class="container">
+  <h3>All Posts</h3>
+<div *ngFor="let blog of this.getBlogs |reverse | paginate: { itemsPerPage: 2, currentPage: p }"class="row go">
+  
+  <div class="col-lg-4 col-md-6 col-sm-12 ">
+    <img class="img-fluid" src="{{blog?.image}}">
+  </div>
+  <div class="col-lg-8 col-md-6 col-sm-12 do ">
+      <div class="post-title">
+          {{blog?.title}}
+        </div>
+      <p>{{blog?.description}}</p>      
+      <div class="metas">
+          POSTED BY {{blog?.author}}
+      </div>
+      <div class="cont">
+      <button class="btn btn-primary" [routerLink]="['/blog/'+blog.id]">Continue reading</button>
+      </div>      
+  </div>  
+  </div>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+
+
+
+
+
+
+
